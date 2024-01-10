@@ -11,6 +11,7 @@ class DoublyLinkedList
                 Node *next; // Pointer to next node is the DLL
                 Node *previous; // Pointer to the previous node in the DLL
                 
+                // Constructor
                 Node(THING x){
                     data = x;
                     next = NULL;
@@ -18,6 +19,7 @@ class DoublyLinkedList
                 }
         };
 
+        // Pointers to head and tail
         Node *head;
         Node *tail;
 
@@ -43,19 +45,12 @@ class DoublyLinkedList
 
         void insertAtEnd(THING x){
             if (head == NULL) {  
-                cout << "inserting at beg" << endl;
                 insertAtBeginning(x); 
             }else{
                 Node *newNode = new Node(x);  
-
-                Node *temp = head;  
-
-                while (temp->next != NULL) {  
-                    temp = temp->next;  
-                }  
-                temp->next = newNode;  
-                newNode->previous = temp;
-                tail =  newNode;
+                tail->next = newNode;
+                newNode->previous = tail;
+                tail = newNode;
             }
         }
 
@@ -70,22 +65,24 @@ class DoublyLinkedList
             tail = tail->previous;
             delete temp;
         }
-        
+
         void displayHead(){
-            cout << head->data << " ";
+            cout << "Head: " <<head->data << endl;
         }
 
         void displayTail(){
-            cout << tail->data << " ";
+            cout << "Tail: " << tail->data << endl;
         }
 
         void display(){
             Node *temp = head;  
 
+            cout << "List: ";
             while (temp != NULL) {  
                 cout << temp->data << " ";  
                 temp = temp->next;  
             }
+            cout << endl;
+            delete temp;
         }
-
 };
