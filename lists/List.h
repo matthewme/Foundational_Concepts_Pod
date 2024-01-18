@@ -53,11 +53,11 @@ class List
 
         void deleteHead(){
             if(head == tail){
-                cout << "head is tail" << endl; // Remove
+                // cout << "head is tail" << endl; 
                 head = NULL;
                 tail = NULL;
             }else{
-                cout << "head is not tail" << endl; // Remove
+                // cout << "head is not tail" << endl; 
                 Node *temp = head;
                 head = head->next;
                 delete temp;
@@ -121,6 +121,7 @@ class List
                     return;
                 }
 
+                // Removing middle item
                 if(temp->data == x){
                     previous->next = temp->next;
                     delete temp;
