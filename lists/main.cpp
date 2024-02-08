@@ -5,7 +5,6 @@ using namespace std;
 int main(){
     List<int> list;
 
-
     // Insert data
     list.insertAtBeginning(1);
     list.insertAtBeginning(2);
@@ -17,11 +16,11 @@ int main(){
     // Verify before
     list.display();
 
-    // Remove data
-    list.remove(3);
+    list.search(9);
 
     // Verify after
     list.display();
     list.displayHead();
     list.displayTail();
+    
 }

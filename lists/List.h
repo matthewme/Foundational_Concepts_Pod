@@ -9,7 +9,6 @@ class List
             public:
                 THING data;   
                 Node *next; // Pointer to next node is the DLL
-                // Node *previous; // Pointer to the previous node in the DLL
                 
                 // Constructor
                 Node(THING x){
@@ -134,5 +133,18 @@ class List
 
             cout << "Item not found" << endl;
             delete temp;
+        }
+
+        void search(THING x){
+            Node *temp = head;  
+
+            while (temp != NULL) {  
+                if(temp->data == x){
+                    cout << x << " found." << endl;
+                    return;
+                }
+                temp = temp->next;
+            }
+            cout << x << " not found." << endl;
         }
 };
